@@ -1,10 +1,11 @@
-import jakarta.persistence.*;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+package TagRelatedDesign;
 
+import TagRelatedDesign.Tag;    // Tag 엔티티 패키지 경로
+import jakarta.persistence.*;
+import Lombok.Getter;
+import Lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 
@@ -18,6 +19,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "posts")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Post {
     
     @Id

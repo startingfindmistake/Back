@@ -1,10 +1,11 @@
-import jakarta.persistence.*;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+package TagRelatedDesign;
 
+import TagRelatedDesign.Post;   // post 엔팉키의 실제 패키지 경로
+import jakarta.persistence.*;
+import Lombok.Getter;
+import Lombok.NoArgsConstructor;
+import Lombok.Setter;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 /*
@@ -15,15 +16,16 @@ Tag 엔티티 (Tag.jva)
  - DB의 'tags' xpdlqmfrhk 1:1로 매핑됩니다.
  */
 
-import java.lang.annotation.Inherited;
-
 @Entity
 @Table(name = "tags")
+@Getter
+@Setter
+@NoArgsConstructor // Lombok: 기본 생성자 자동 생성
 public class Tag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;private Integer id;
+    private Integer id;
 
     // 태그 이름은 중복되면 안 되므로 unique = true 제약 조건을 추가합니다.
     @Column(name = "name", unique = true, nullable = false, length = 50)
